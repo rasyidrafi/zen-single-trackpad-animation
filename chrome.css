@@ -1,0 +1,40 @@
+:root {
+  --mod-browser-scale: var(--mod-singletpanimate-scale, 0.98);
+  --mod-browser-ease-swipe: var(--mod-singletpanimate-ease-swipe, 0.3, 1.2, 0.5, 1);
+  --mod-browser-ease-reset: var(--mod-singletpanimate-ease-reset, 0.2, 1.4, 0.3, 1);
+  --mod-browser-radius-default: var(--mod-singletpanimate-radius, 8px);
+  --mod-browser-translate-x: var(--mod-singletpanimate-movement, 0.5%); 
+}
+
+@media (-moz-bool-pref: "mod.singletpanimate.tabshadow") {
+  .browserStack browser {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.75);
+  }
+}
+
+@media (-moz-bool-pref: "mod.singletpanimate.disablebordershadow") {
+  hbox.browserSidebarContainer,
+  #zen-tabbox-wrapper {
+    box-shadow: none !important;
+  }
+}
+
+.browserStack browser {
+  transition: all 0.22s cubic-bezier(var(--mod-browser-ease-reset)) !important;
+  transform: translateX(0) !important;
+  border-radius: var(--mod-browser-radius-default) !important;
+}
+
+.browserStack:has(#historySwipeAnimationPreviousArrow:not([style="translate: none;"]), #historySwipeAnimationNextArrow:not([style="translate: none;"])) browser {
+  transition: all 0.22s cubic-bezier(var(--mod-browser-ease-swipe)) !important;
+  scale: var(--mod-browser-scale) !important;
+  border-radius: calc(var(--mod-browser-radius-default) * 2) !important;
+}
+
+.browserStack:has(#historySwipeAnimationPreviousArrow:not([style="translate: none;"])) browser {
+  transform: translateX(calc(var(--mod-browser-translate-x) * 1)) !important; /* Use the variable */
+}
+
+.browserStack:has(#historySwipeAnimationNextArrow:not([style="translate: none;"])) browser {
+  transform: translateX(calc(var(--mod-browser-translate-x) * -1)) !important; /* Use the variable */
+}
