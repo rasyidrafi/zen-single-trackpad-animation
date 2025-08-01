@@ -57,25 +57,32 @@
   pointer-events: none;
 }
 
-/* Swipe triangle styling */
+/* Hide default arrow content and style triangle replacements */
 #historySwipeAnimationPreviousArrow,
 #historySwipeAnimationNextArrow {
   will-change: transform;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: none !important;
+  /* Hide any default content/children */
+}
+
+#historySwipeAnimationPreviousArrow > *,
+#historySwipeAnimationNextArrow > * {
+  display: none !important;
 }
 
 /* Triangle base styling using clip-path for rounded triangles */
 #historySwipeAnimationPreviousArrow::before,
 #historySwipeAnimationNextArrow::before {
   content: '';
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   background: var(--swipe-nav-icon-primary-color);
   transition: background 1s, box-shadow 1s;
   border-radius: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* Previous arrow - left-pointing triangle */
