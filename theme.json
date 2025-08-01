@@ -1,7 +1,7 @@
 {
   "id": "3699917d-0238-422a-bb4b-9d37344c0c5f",
-  "name": "Single Trackpad Animation",
-  "description": "Adds smooth trackpad swipe animations with scaling and translation effects when navigating between pages in your browser.",
+  "name": "Custom Trackpad Swipe Animation & Color",
+  "description": "Customizable trackpad swipe transitions and the colors for the swipe UI.",
   "homepage": "https://github.com/rasyidrafi/zen-single-trackpad-animation",
   "image": "https://github.com/rasyidrafi/zen-single-trackpad-animation/blob/main/image.png?raw=true",
   "style": {
@@ -10,11 +10,12 @@
   "readme": "https://raw.githubusercontent.com/rasyidrafi/zen-single-trackpad-animation/refs/heads/main/README.md",
   "preferences": "https://raw.githubusercontent.com/rasyidrafi/zen-single-trackpad-animation/refs/heads/main/preferences.json",
   "author": "rasyidrafi",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "tags": [
-    "Animation"
+    "Animation",
+    "UI"
   ],
   "createdAt": "2025-07-29",
-  "updatedAt": "2025-07-29",
+  "updatedAt": "2025-08-01",
   "fork": ["zen", "firefox"]
 }
