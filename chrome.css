@@ -73,14 +73,14 @@
       --mod-singletpanimate-primarycolor-final: var(
         --zen-primary-color,
         var(--mod-singletpanimate-primarycolor, rgb(153, 110, 81))
-      );
+      ) !important;
       --mod-singletpanimate-secondarycolor-final: var(
         --zen-colors-primary-foreground,
         var(
           --mod-singletpanimate-secondarycolor,
           color-mix(in srgb, rgb(153, 110, 81) 80%, white 20%)
         )
-      );
+      ) !important;
     }
   }
 
@@ -89,11 +89,11 @@
       --mod-singletpanimate-primarycolor-final: var(
         --mod-singletpanimate-primarycolor,
         rgb(153, 110, 81)
-      );
+      ) !important;
       --mod-singletpanimate-secondarycolor-final: var(
         --mod-singletpanimate-secondarycolor,
         color-mix(in srgb, rgb(153, 110, 81) 80%, white 20%)
-      );
+      ) !important;
     }
   }
 
@@ -102,38 +102,38 @@
     --mod-singletpanimate-arrowcolor-light-final: var(
       --mod-singletpanimate-arrowcolor-light,
       white
-    );
+    ) !important;
     --mod-singletpanimate-arrowcolor-dark-final: var(
       --mod-singletpanimate-arrowcolor-dark,
       black
-    );
+    ) !important;
   }
 
   #swipe-nav-icon circle.swipe-nav-icon-circle-outline {
     fill: var(
       --mod-singletpanimate-secondarycolor-final,
       color-mix(in srgb, rgb(153, 110, 81) 80%, white 20%)
-    );
-    stroke: var(--mod-singletpanimate-primarycolor-final, rgb(153, 110, 81));
+    ) !important;
+    stroke: var(--mod-singletpanimate-primarycolor-final, rgb(153, 110, 81)) !important;
   }
 
   #swipe-nav-icon circle.swipe-nav-icon-circle {
     fill: var(
       --mod-singletpanimate-secondarycolor-final,
       color-mix(in srgb, rgb(153, 110, 81) 80%, white 20%)
-    );
-    stroke: var(--mod-singletpanimate-primarycolor-final, rgb(153, 110, 81));
+    ) !important;
+    stroke: var(--mod-singletpanimate-primarycolor-final, rgb(153, 110, 81)) !important;
   }
 
   #swipe-nav-icon path.swipe-nav-icon-arrow {
     @media (prefers-color-scheme: light) {
-      fill: var(--mod-singletpanimate-arrowcolor-light-final);
-      stroke: var(--mod-singletpanimate-arrowcolor-light-final);
+      fill: var(--mod-singletpanimate-arrowcolor-light-final) !important;
+      stroke: var(--mod-singletpanimate-arrowcolor-light-final) !important;
     }
 
     @media (prefers-color-scheme: dark) {
-      fill: var(--mod-singletpanimate-arrowcolor-dark-final);
-      stroke: var(--mod-singletpanimate-arrowcolor-dark-final);
+      fill: var(--mod-singletpanimate-arrowcolor-dark-final) !important;
+      stroke: var(--mod-singletpanimate-arrowcolor-dark-final) !important;
     }
   }
 }
