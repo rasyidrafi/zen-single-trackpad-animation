@@ -4,6 +4,18 @@
   --mod-browser-ease-reset: var(--mod-singletpanimate-ease-reset, 0.2, 1.4, 0.3, 1);
   --mod-browser-radius-default: var(--mod-singletpanimate-radius, 8px);
   --mod-browser-translate-x: var(--mod-singletpanimate-movement, 0.5%); 
+  
+  /* Swipe arrow color variables - default to custom colors */
+  --swipe-nav-icon-primary-color: var(--mod-singletpanimate-primary-color, #0060df);
+  --swipe-nav-icon-accent-color: var(--mod-singletpanimate-accent-color, #ffffff);
+}
+
+/* Use Zen theme colors when enabled */
+@media (-moz-bool-pref: "mod.singletpanimate.usezencolors") {
+  :root {
+    --swipe-nav-icon-primary-color: var(--zen-primary-color, #ffb787);
+    --swipe-nav-icon-accent-color: var(--zen-colors-primary-foreground, #1d1d1d);
+  }
 }
 
 @media (-moz-bool-pref: "mod.singletpanimate.tabshadow") {
@@ -37,4 +49,79 @@
 
 .browserStack:has(#historySwipeAnimationNextArrow:not([style="translate: none;"])) browser {
   transform: translateX(calc(var(--mod-browser-translate-x) * -1)) !important; /* Use the variable */
+}
+
+/* History swipe navigation animation container */
+#historySwipeAnimationContainer {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Hide default arrow content and style triangle replacements */
+#historySwipeAnimationPreviousArrow,
+#historySwipeAnimationNextArrow {
+  will-change: transform;
+  background: none !important;
+  /* Hide any default content/children */
+}
+
+#historySwipeAnimationPreviousArrow > *,
+#historySwipeAnimationNextArrow > * {
+  display: none !important;
+}
+
+/* Triangle base styling using clip-path for rounded triangles */
+#historySwipeAnimationPreviousArrow::before,
+#historySwipeAnimationNextArrow::before {
+  content: '';
+  width: 40px;
+  height: 40px;
+  background: var(--swipe-nav-icon-primary-color);
+  transition: background 1s, box-shadow 1s;
+  border-radius: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Previous arrow - left-pointing triangle */
+#historySwipeAnimationPreviousArrow::before {
+  clip-path: polygon(0% 50%, 100% 20%, 100% 80%);
+}
+
+/* Next arrow - right-pointing triangle */
+#historySwipeAnimationNextArrow::before {
+  clip-path: polygon(0% 20%, 100% 50%, 0% 80%);
+}
+
+/* RTL support - flip triangles for RTL locales */
+#historySwipeAnimationPreviousArrow:-moz-locale-dir(rtl)::before {
+  clip-path: polygon(0% 20%, 100% 50%, 0% 80%);
+}
+
+#historySwipeAnimationNextArrow:-moz-locale-dir(rtl)::before {
+  clip-path: polygon(0% 50%, 100% 20%, 100% 80%);
+}
+
+/* Will navigate state - enhanced glow effect */
+#historySwipeAnimationPreviousArrow.will-navigate::before {
+  background: var(--swipe-nav-icon-accent-color);
+  box-shadow: 0 0 16px var(--swipe-nav-icon-primary-color);
+}
+
+#historySwipeAnimationNextArrow.will-navigate::before {
+  background: var(--swipe-nav-icon-accent-color);
+  box-shadow: 0 0 16px var(--swipe-nav-icon-primary-color);
+}
+
+/* RTL will navigate state */
+#historySwipeAnimationPreviousArrow.will-navigate:-moz-locale-dir(rtl)::before {
+  background: var(--swipe-nav-icon-accent-color);
+  box-shadow: 0 0 16px var(--swipe-nav-icon-primary-color);
+}
+
+#historySwipeAnimationNextArrow.will-navigate:-moz-locale-dir(rtl)::before {
+  background: var(--swipe-nav-icon-accent-color);
+  box-shadow: 0 0 16px var(--swipe-nav-icon-primary-color);
 }
