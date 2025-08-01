@@ -55,7 +55,7 @@
     },
     {
       "property": "mod.singletpanimate.primary.color",
-      "label": "Swipe arrow primary color",
+      "label": "Swipe triangle primary color",
       "type": "color",
       "defaultValue": "#0060df",
       "dependencies": [
@@ -67,7 +67,7 @@
     },
     {
       "property": "mod.singletpanimate.accent.color",
-      "label": "Swipe arrow accent color",
+      "label": "Swipe triangle accent color",
       "type": "color",
       "defaultValue": "#ffffff",
       "dependencies": [

@@ -9,7 +9,7 @@ A smooth animation theme extension for Zen Browser and Firefox that adds elegant
 - 🎨 **Custom Animation Curves** - Fine-tune easing curves for both swipe and reset animations
 - 🔄 **Horizontal Movement** - Configurable horizontal translation distance during swipes
 - 🌟 **Modern Border Radius** - Adds rounded corners to pages during animation
-- 🏹 **Customizable Swipe Arrows** - Firefox-style navigation arrows with color customization
+- 🏹 **Customizable Swipe Triangles** - Rounded triangular navigation indicators with color customization
 - 🎭 **Theme Integration** - Use colors from Zen Browser theme or define custom colors
 - 💫 **Optional Tab Shadow** - Add shadows around the moving page for enhanced depth
 - 🚫 **Shadow Control** - Option to disable border shadows around web pages
@@ -62,11 +62,11 @@ This theme includes several customization options that can be configured through
 - **Border radius during animation**: Adjust rounded corners during animation (default: `8px`)
 - **Horizontal movement distance**: Set how far pages move horizontally (default: `0.5%`)
 
-### Swipe Arrow Customization
+### Swipe Triangle Customization
 
 - **Use color from Zen Browser theme**: Enable to use colors from the current Zen Browser theme (default: disabled)
-- **Swipe arrow primary color**: Customize the primary color of the swipe arrows (default: `#0060df`)
-- **Swipe arrow accent color**: Customize the accent color of the swipe arrows (default: `#ffffff`)
+- **Swipe triangle primary color**: Customize the primary color of the swipe triangles (default: `#0060df`)
+- **Swipe triangle accent color**: Customize the accent color of the swipe triangles (default: `#ffffff`)
 
 ### Shadow Options
 
@@ -81,7 +81,7 @@ This theme includes several customization options that can be configured through
    - Fine-tune the scale factor for subtle or pronounced scaling effects
    - Experiment with different easing curves for custom animation feels
    - Adjust border radius and movement distance to match your preference
-   - Customize swipe arrow colors or use colors from your Zen Browser theme
+   - Customize swipe triangle colors or use colors from your Zen Browser theme
    - Toggle shadow options for your preferred visual style
 4. Changes will apply automatically
 
@@ -93,7 +93,7 @@ This theme enhances trackpad navigation by:
 - **Horizontal translation**: Pages move horizontally to indicate navigation direction
 - **Dynamic border radius**: Rounded corners increase during animation for visual polish
 - **Customizable timing**: Fine-tuned easing curves for smooth, natural motion
-- **Customizable swipe arrows**: Firefox-style navigation arrows with color customization
+- **Customizable swipe triangles**: Rounded triangular navigation indicators with color customization
 - **Theme integration**: Option to use colors from Zen Browser theme or custom colors
 - **Optional visual effects**: Configurable shadows and border adjustments
 - **Responsive design**: Animations trigger only during actual trackpad swipe gestures

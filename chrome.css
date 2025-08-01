@@ -57,81 +57,64 @@
   pointer-events: none;
 }
 
-/* Swipe arrow styling based on Firefox internal UI */
+/* Swipe triangle styling */
 #historySwipeAnimationPreviousArrow,
 #historySwipeAnimationNextArrow {
   will-change: transform;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#historySwipeAnimationPreviousArrow > svg,
-#historySwipeAnimationNextArrow > svg {
-  margin: auto 0;
+/* Triangle base styling using clip-path for rounded triangles */
+#historySwipeAnimationPreviousArrow::before,
+#historySwipeAnimationNextArrow::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: var(--swipe-nav-icon-primary-color);
+  transition: background 1s, box-shadow 1s;
+  border-radius: 3px;
 }
 
-/* RTL support and next arrow */
-.swipe-nav-icon:-moz-locale-dir(rtl),
-#historySwipeAnimationNextArrow {
-  transform: scaleX(-1);
+/* Previous arrow - left-pointing triangle */
+#historySwipeAnimationPreviousArrow::before {
+  clip-path: polygon(0% 50%, 100% 20%, 100% 80%);
 }
 
-/* SVG icon styling */
-.swipe-nav-icon-circle,
-.swipe-nav-icon-circle-outline,
-.swipe-nav-icon-arrow {
-  transition: fill 1s;
+/* Next arrow - right-pointing triangle */
+#historySwipeAnimationNextArrow::before {
+  clip-path: polygon(0% 20%, 100% 50%, 0% 80%);
 }
 
-/* Default platform styling (non-macOS) */
-@media not (-moz-platform: macos) {
-  .swipe-nav-icon-circle {
-    fill: var(--swipe-nav-icon-accent-color);
-    stroke: var(--swipe-nav-icon-primary-color);
-  }
-  
-  .will-navigate .swipe-nav-icon-circle {
-    fill: var(--swipe-nav-icon-primary-color);
-  }
-
-  .swipe-nav-icon-circle-outline {
-    fill: var(--swipe-nav-icon-primary-color);
-    stroke: var(--swipe-nav-icon-primary-color);
-    transition: opacity 1s;
-    will-change: opacity;
-    opacity: 0;
-  }
-  
-  .will-navigate .swipe-nav-icon-circle-outline {
-    transition-delay: 0.2s;
-    opacity: 0.2;
-  }
-
-  .swipe-nav-icon-arrow {
-    fill: var(--swipe-nav-icon-primary-color);
-  }
-  
-  .will-navigate .swipe-nav-icon-arrow {
-    fill: var(--swipe-nav-icon-accent-color);
-    stroke: var(--swipe-nav-icon-accent-color);
-  }
+/* RTL support - flip triangles for RTL locales */
+#historySwipeAnimationPreviousArrow:-moz-locale-dir(rtl)::before {
+  clip-path: polygon(0% 20%, 100% 50%, 0% 80%);
 }
 
-/* macOS specific styling */
-@media (-moz-platform: macos) {
-  .swipe-nav-icon-circle-outline,
-  .swipe-nav-icon-arrow {
-    fill: var(--swipe-nav-icon-primary-color);
-  }
-  
-  .will-navigate .swipe-nav-icon-circle-outline,
-  .will-navigate .swipe-nav-icon-arrow {
-    fill: var(--swipe-nav-icon-accent-color);
-  }
+#historySwipeAnimationNextArrow:-moz-locale-dir(rtl)::before {
+  clip-path: polygon(0% 50%, 100% 20%, 100% 80%);
+}
 
-  .swipe-nav-icon-circle {
-    fill: var(--swipe-nav-icon-accent-color);
-  }
-  
-  .will-navigate .swipe-nav-icon-circle {
-    fill: var(--swipe-nav-icon-primary-color);
-  }
+/* Will navigate state - enhanced glow effect */
+#historySwipeAnimationPreviousArrow.will-navigate::before {
+  background: var(--swipe-nav-icon-accent-color);
+  box-shadow: 0 0 16px var(--swipe-nav-icon-primary-color);
+}
+
+#historySwipeAnimationNextArrow.will-navigate::before {
+  background: var(--swipe-nav-icon-accent-color);
+  box-shadow: 0 0 16px var(--swipe-nav-icon-primary-color);
+}
+
+/* RTL will navigate state */
+#historySwipeAnimationPreviousArrow.will-navigate:-moz-locale-dir(rtl)::before {
+  background: var(--swipe-nav-icon-accent-color);
+  box-shadow: 0 0 16px var(--swipe-nav-icon-primary-color);
+}
+
+#historySwipeAnimationNextArrow.will-navigate:-moz-locale-dir(rtl)::before {
+  background: var(--swipe-nav-icon-accent-color);
+  box-shadow: 0 0 16px var(--swipe-nav-icon-primary-color);
 }
