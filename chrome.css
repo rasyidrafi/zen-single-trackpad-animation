@@ -4,6 +4,18 @@
   --mod-browser-ease-reset: var(--mod-singletpanimate-ease-reset, 0.2, 1.4, 0.3, 1);
   --mod-browser-radius-default: var(--mod-singletpanimate-radius, 8px);
   --mod-browser-translate-x: var(--mod-singletpanimate-movement, 0.5%); 
+  
+  /* Swipe arrow color variables - default to custom colors */
+  --swipe-nav-icon-primary-color: var(--mod-singletpanimate-primary-color, #0060df);
+  --swipe-nav-icon-accent-color: var(--mod-singletpanimate-accent-color, #ffffff);
+}
+
+/* Use Zen theme colors when enabled */
+@media (-moz-bool-pref: "mod.singletpanimate.usezencolors") {
+  :root {
+    --swipe-nav-icon-primary-color: var(--zen-primary-color, #ffb787);
+    --swipe-nav-icon-accent-color: var(--zen-colors-primary-foreground, #1d1d1d);
+  }
 }
 
 @media (-moz-bool-pref: "mod.singletpanimate.tabshadow") {
@@ -37,4 +49,89 @@
 
 .browserStack:has(#historySwipeAnimationNextArrow:not([style="translate: none;"])) browser {
   transform: translateX(calc(var(--mod-browser-translate-x) * -1)) !important; /* Use the variable */
+}
+
+/* History swipe navigation animation container */
+#historySwipeAnimationContainer {
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Swipe arrow styling based on Firefox internal UI */
+#historySwipeAnimationPreviousArrow,
+#historySwipeAnimationNextArrow {
+  will-change: transform;
+}
+
+#historySwipeAnimationPreviousArrow > svg,
+#historySwipeAnimationNextArrow > svg {
+  margin: auto 0;
+}
+
+/* RTL support and next arrow */
+.swipe-nav-icon:-moz-locale-dir(rtl),
+#historySwipeAnimationNextArrow {
+  transform: scaleX(-1);
+}
+
+/* SVG icon styling */
+.swipe-nav-icon-circle,
+.swipe-nav-icon-circle-outline,
+.swipe-nav-icon-arrow {
+  transition: fill 1s;
+}
+
+/* Default platform styling (non-macOS) */
+@media not (-moz-platform: macos) {
+  .swipe-nav-icon-circle {
+    fill: var(--swipe-nav-icon-accent-color);
+    stroke: var(--swipe-nav-icon-primary-color);
+  }
+  
+  .will-navigate .swipe-nav-icon-circle {
+    fill: var(--swipe-nav-icon-primary-color);
+  }
+
+  .swipe-nav-icon-circle-outline {
+    fill: var(--swipe-nav-icon-primary-color);
+    stroke: var(--swipe-nav-icon-primary-color);
+    transition: opacity 1s;
+    will-change: opacity;
+    opacity: 0;
+  }
+  
+  .will-navigate .swipe-nav-icon-circle-outline {
+    transition-delay: 0.2s;
+    opacity: 0.2;
+  }
+
+  .swipe-nav-icon-arrow {
+    fill: var(--swipe-nav-icon-primary-color);
+  }
+  
+  .will-navigate .swipe-nav-icon-arrow {
+    fill: var(--swipe-nav-icon-accent-color);
+    stroke: var(--swipe-nav-icon-accent-color);
+  }
+}
+
+/* macOS specific styling */
+@media (-moz-platform: macos) {
+  .swipe-nav-icon-circle-outline,
+  .swipe-nav-icon-arrow {
+    fill: var(--swipe-nav-icon-primary-color);
+  }
+  
+  .will-navigate .swipe-nav-icon-circle-outline,
+  .will-navigate .swipe-nav-icon-arrow {
+    fill: var(--swipe-nav-icon-accent-color);
+  }
+
+  .swipe-nav-icon-circle {
+    fill: var(--swipe-nav-icon-accent-color);
+  }
+  
+  .will-navigate .swipe-nav-icon-circle {
+    fill: var(--swipe-nav-icon-primary-color);
+  }
 }

@@ -45,5 +45,36 @@
       "label": "Disable border shadows (disable shadow around the web page)",
       "type": "checkbox",
       "defaultValue": true
+    },
+    {
+      "property": "mod.singletpanimate.usezencolors",
+      "label": "Use color from Zen Browser theme",
+      "type": "checkbox",
+      "defaultValue": false,
+      "description": "If the color is not set correctly, it is recommended to uncheck 'Use color from Zen Browser theme' and define the color manually."
+    },
+    {
+      "property": "mod.singletpanimate.primary.color",
+      "label": "Swipe arrow primary color",
+      "type": "color",
+      "defaultValue": "#0060df",
+      "dependencies": [
+        {
+          "property": "mod.singletpanimate.usezencolors",
+          "value": false
+        }
+      ]
+    },
+    {
+      "property": "mod.singletpanimate.accent.color",
+      "label": "Swipe arrow accent color",
+      "type": "color",
+      "defaultValue": "#ffffff",
+      "dependencies": [
+        {
+          "property": "mod.singletpanimate.usezencolors",
+          "value": false
+        }
+      ]
     }
 ]
