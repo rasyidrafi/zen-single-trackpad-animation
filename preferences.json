@@ -80,7 +80,7 @@
     "property": "mod.singletpanimate.arrowcolor.light",
     "label": "Arrow color for the component (light mode)",
     "type": "string",
-    "defaultValue": "white"
+    "defaultValue": "rgba(243,202,176,255)"
   },
   {
     "property": "mod.singletpanimate.arrowcolor.dark",
