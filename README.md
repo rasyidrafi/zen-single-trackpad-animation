@@ -123,4 +123,4 @@ Modified and enhanced by [rasyidrafi](https://github.com/rasyidrafi)
 
 ---
 
-*Version 2.0.2 - Last updated: August 1, 2025*
+*Version 2.0.3 - Last updated: August 2, 2025*
