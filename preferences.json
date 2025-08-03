@@ -30,7 +30,7 @@
     "property": "mod.singletpanimate.radius",
     "label": "Border radius during animation",
     "type": "string",
-    "defaultValue": "8px",
+    "defaultValue": "16px",
     "placeholder": "e.g. 10px"
   },
   {

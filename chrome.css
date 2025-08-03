@@ -14,7 +14,7 @@
     0.3,
     1
   );
-  --mod-browser-radius-default: var(--mod-singletpanimate-radius, 8px);
+  --mod-browser-radius-default: var(--mod-singletpanimate-radius, 16px);
   --mod-browser-translate-x: var(--mod-singletpanimate-movement, 0.5%);
 }
 
@@ -39,7 +39,7 @@
     browser {
     transition: all 0.22s cubic-bezier(var(--mod-browser-ease-swipe)) !important;
     scale: var(--mod-browser-scale) !important;
-    border-radius: calc(var(--mod-browser-radius-default) * 2) !important;
+    border-radius: var(--mod-browser-radius-default, 16px) !important;
   }
 
   .browserStack:has(
