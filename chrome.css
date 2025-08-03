@@ -14,10 +14,6 @@
     0.3,
     1
   );
-  --mod-browser-radius-default-base: var(
-    --mod-singletpanimate-radiusbase,
-    var(--zen-native-inner-radius, 8px)
-  );
   --mod-browser-radius-default: var(--mod-singletpanimate-radius, 8px);
   --mod-browser-translate-x: var(--mod-singletpanimate-movement, 0.5%);
 }
@@ -36,19 +32,6 @@
 }
 
 @media (-moz-bool-pref: "mod.singletpanimate.useswipeanimation") {
-  :root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not(
-      [chromehidden~="toolbar"]
-    ) {
-    & #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer,
-    & #tabbrowser-tabpanels[dragging-split="true"] {
-      &.browserSidebarContainer {
-        :root:not([zen-no-padding="true"]) & {
-          border-radius: var(--mod-browser-radius-default-base) !important;
-        }
-      }
-    }
-  }
-
   .browserStack:has(
       #historySwipeAnimationPreviousArrow:not([style="translate: none;"]),
       #historySwipeAnimationNextArrow:not([style="translate: none;"])

@@ -61,7 +61,6 @@ This theme includes several customization options that can be configured through
 ### Visual Effects
 
 - **Border radius during animation**: Adjust rounded corners during animation (default: `8px`)
-- **Default border radius when idle**: Set the border radius when no animation is active (default: `var(--zen-native-inner-radius, 5px)`)
 - **Horizontal movement distance**: Set how far pages move horizontally (default: `0.5%`)
 - **Add tab shadow around the moving page**: Enable shadow effects for enhanced depth (default: enabled)
 - **Disable border shadows**: Remove shadows around web pages for a cleaner look (default: enabled)
@@ -124,4 +123,4 @@ Modified and enhanced by [rasyidrafi](https://github.com/rasyidrafi)
 
 ---
 
-*Version 2.0.4 - Last updated: August 3, 2025*
+*Version 2.0.5 - Last updated: August 3, 2025*

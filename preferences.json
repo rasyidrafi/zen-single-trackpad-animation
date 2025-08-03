@@ -34,13 +34,6 @@
     "placeholder": "e.g. 10px"
   },
   {
-    "property": "mod.singletpanimate.radiusbase",
-    "label": "Default Border radius when idle",
-    "type": "string",
-    "defaultValue": "var(--zen-native-inner-radius, 5px)",
-    "placeholder": "e.g. 8px"
-  },
-  {
     "property": "mod.singletpanimate.movement",
     "label": "Horizontal movement distance",
     "type": "string",
